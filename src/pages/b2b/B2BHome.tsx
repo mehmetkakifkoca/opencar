@@ -120,7 +120,7 @@ export default function B2BHome() {
           </div>
 
           {/* Badges block */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.25rem' }}>
+          <div className="grid-2" style={{ gap: '1.25rem' }}>
             {[
               { title: 'Eigene Meisterwerkstatt', desc: 'Wir kennen die Praxisanforderungen.' },
               { title: 'BestDrive Partner', desc: 'Zertifizierte Teilequalität von Continental.' },
