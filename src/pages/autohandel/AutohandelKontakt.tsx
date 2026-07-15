@@ -71,7 +71,7 @@ export default function AutohandelKontakt() {
             <form onSubmit={handleSubmit}>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Fahrzeug- oder Beratungsanfrage</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+              <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div className="form-group">
                   <label className="form-label">Name *</label>
                   <input type="text" required className="form-control" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="Ihr Name" />
@@ -88,7 +88,7 @@ export default function AutohandelKontakt() {
                 <input type="email" required className="form-control" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} placeholder="E-Mail Adresse" />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+              <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div className="form-group">
                   <label className="form-label">Interessiert an Fahrzeug (Modell)</label>
                   <input type="text" className="form-control" value={formData.carInterest} onChange={e => setFormData({...formData, carInterest: e.target.value})} placeholder="z.B. Audi A4 Avant" />

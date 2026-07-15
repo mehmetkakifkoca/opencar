@@ -186,7 +186,7 @@ export default function Login() {
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Fahrzeughistorie</h3>
                 
                 {mockVehicles.map((car, idx) => (
-                  <div key={idx} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+                  <div key={idx} className="grid-2" style={{ gap: '1.5rem' }}>
                     <div style={{ background: 'var(--bg-dark)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.03)' }}>
                       <div style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700, textTransform: 'uppercase' }}>Fahrzeug</div>
                       <h4 style={{ fontSize: '1.25rem', color: '#FFF', margin: '0.25rem 0' }}>{car.make} {car.model}</h4>

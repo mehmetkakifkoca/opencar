@@ -75,7 +75,7 @@ export default function B2BKontakt() {
             <form onSubmit={handleSubmit}>
               <h3 style={{ fontSize: '1.35rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>B2B-Konto beantragen / Anfrage senden</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+              <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div className="form-group">
                   <label className="form-label">Firmenname *</label>
                   <input type="text" required className="form-control" value={formData.companyName} onChange={e => setFormData({...formData, companyName: e.target.value})} placeholder="Vollständiger Firmenname" />
@@ -96,7 +96,7 @@ export default function B2BKontakt() {
                 <input type="text" required className="form-control" value={formData.contactPerson} onChange={e => setFormData({...formData, contactPerson: e.target.value})} placeholder="Vor- & Nachname" />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+              <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div className="form-group">
                   <label className="form-label">Telefon *</label>
                   <input type="tel" required className="form-control" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} placeholder="Direkte Durchwahl" />

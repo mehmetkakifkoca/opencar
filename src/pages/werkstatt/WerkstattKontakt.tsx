@@ -88,7 +88,7 @@ export default function WerkstattKontakt() {
             <form onSubmit={handleSubmit}>
               <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Termin oder Service anfragen</h3>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+              <div className="grid-2" style={{ gap: '1rem' }}>
                 <div className="form-group">
                   <label className="form-label">Name *</label>
                   <input type="text" required className="form-control" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder="Ihr Name" />
@@ -99,7 +99,7 @@ export default function WerkstattKontakt() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+              <div className="grid-2" style={{ gap: '1rem' }}>
                 <div className="form-group">
                   <label className="form-label">E-Mail *</label>
                   <input type="email" required className="form-control" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} placeholder="E-Mail Adresse" />
@@ -119,7 +119,7 @@ export default function WerkstattKontakt() {
                 </select>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+              <div className="grid-2" style={{ gap: '1rem' }}>
                 <div className="form-group">
                   <label className="form-label">Wunschdatum</label>
                   <input type="date" className="form-control" value={formData.date} onChange={e => setFormData({...formData, date: e.target.value})} />

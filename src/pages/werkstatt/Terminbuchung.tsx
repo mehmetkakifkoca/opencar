@@ -178,7 +178,7 @@ export default function Terminbuchung() {
           </div>
 
           {/* Grid of options */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2.5rem' }}>
+          <div className="grid-2" style={{ gap: '1rem', marginBottom: '2.5rem' }}>
             {servicesList.map((srv) => {
               const isSelected = formData.service === srv.value;
               return (
@@ -290,7 +290,7 @@ export default function Terminbuchung() {
           </div>
 
           {/* Grid of inputs */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div className="grid-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
             <div className="form-group">
               <label className="form-label" style={{ color: '#111827', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>MARKE</label>
               <input 
@@ -315,7 +315,7 @@ export default function Terminbuchung() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div className="grid-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
             <div className="form-group">
               <label className="form-label" style={{ color: '#111827', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: '0.5rem' }}>BAUJAHR</label>
               <input 
@@ -402,7 +402,7 @@ export default function Terminbuchung() {
             <p style={{ fontSize: '0.92rem', color: '#6B7280', margin: 0 }}>Wählen Sie Ihr Wunschdatum und eine verfügbare Uhrzeit.</p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="grid-2" style={{ gap: '1.5rem', marginBottom: '2rem' }}>
             <div className="form-group">
               <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Datum</label>
               <input 
@@ -448,7 +448,7 @@ export default function Terminbuchung() {
             <p style={{ fontSize: '0.92rem', color: '#6B7280', margin: 0 }}>Geben Sie Ihre persönlichen Daten an, um die Buchung abzuschließen.</p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1rem' }}>
+          <div className="grid-2" style={{ gap: '1rem', marginBottom: '1rem' }}>
             <div className="form-group">
               <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Name *</label>
               <input type="text" className="form-control" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} placeholder="Vor- & Nachname" style={{ background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827' }} />
@@ -541,7 +541,7 @@ export default function Terminbuchung() {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="grid-2" style={{ gap: '1rem', marginBottom: '1.5rem' }}>
               <div className="form-group">
                 <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Ablaufdatum</label>
                 <input 
