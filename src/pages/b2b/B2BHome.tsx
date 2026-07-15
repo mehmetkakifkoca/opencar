@@ -23,18 +23,18 @@ export default function B2BHome() {
     <div style={{ animation: 'fadeInUp 0.4s ease-out' }}>
       
       {/* 1. HERO SECTION */}
-      <section className="section" style={{ background: 'radial-gradient(circle at 70% 30%, rgba(255, 168, 0, 0.08) 0%, transparent 60%)', borderBottom: '1px solid var(--border-color)', padding: '6rem 0' }}>
+      <section className="b2b-hero-section">
         <div className="container grid-2" style={{ alignItems: 'center' }}>
-          <div>
+          <div className="b2b-hero-content">
             <div className="badge" style={{ marginBottom: '1.25rem' }}>OpenCarBox B2B · AT & DE</div>
-            <h1 style={{ fontSize: '3.25rem', lineHeight: '1.2', marginBottom: '1.5rem' }}>
+            <h1 className="b2b-hero-title">
               Verlässliche Teileversorgung<br />
               <span style={{ color: 'var(--primary)' }}>für Profis.</span>
             </h1>
             <p style={{ fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '2.5rem', color: 'var(--text-secondary)' }}>
               Bestellt bis 10:00 Uhr – geliefert bis 14:00 Uhr. Werkstätten, Händler und Gewerbekunden vertrauen auf die Logistik und Qualität von OpenCarBox.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            <div className="b2b-hero-buttons">
               <Link to="/b2b/kontakt" className="btn btn-primary">
                 Jetzt anfragen
               </Link>
@@ -43,8 +43,8 @@ export default function B2BHome() {
               </Link>
             </div>
           </div>
-
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+ 
+          <div className="b2b-mascot-container">
             <div style={{
               position: 'absolute',
               top: '-10%',
@@ -57,23 +57,14 @@ export default function B2BHome() {
             <img 
               src={mascotB2b} 
               alt="OpenCarBox B2B Alien" 
-              style={{
-                width: '100%',
-                maxHeight: '430px',
-                objectFit: 'contain',
-                borderRadius: 'var(--radius-lg)',
-                border: '2px solid var(--border-color)',
-                boxShadow: 'var(--shadow-glow), 0 20px 40px rgba(0,0,0,0.5)',
-                zIndex: 1,
-                transform: 'rotate(-1deg)'
-              }}
+              className="b2b-mascot-img"
             />
           </div>
         </div>
-
+ 
         {/* B2B stats counters */}
         <div className="container" style={{ marginTop: '4rem' }}>
-          <div className="grid-4" style={{ background: 'var(--bg-surface)', padding: '2rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)' }}>
+          <div className="b2b-stats-container">
             {[
               { num: '10:00 Uhr', text: 'Bestellschluss' },
               { num: '14:00 Uhr', text: 'Geliefert (Same Day)' },
@@ -191,6 +182,93 @@ export default function B2BHome() {
           </div>
         </div>
       </section>
+      {/* Styles for B2B Home Page */}
+      <style>{`
+        .b2b-hero-section {
+          background: radial-gradient(circle at 70% 30%, rgba(255, 168, 0, 0.08) 0%, transparent 60%);
+          border-bottom: 1px solid var(--border-color);
+          padding: 6rem 0;
+        }
+        .b2b-hero-content {
+          text-align: left;
+        }
+        .b2b-hero-title {
+          font-size: 3.25rem;
+          line-height: 1.2;
+          margin-bottom: 1.5rem;
+        }
+        .b2b-hero-buttons {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-bottom: 2.5rem;
+        }
+        .b2b-mascot-container {
+          display: flex;
+          justify-content: center;
+          position: relative;
+        }
+        .b2b-mascot-img {
+          width: 100%;
+          max-height: 430px;
+          object-fit: contain;
+          border-radius: var(--radius-lg);
+          border: 2px solid var(--border-color);
+          box-shadow: var(--shadow-glow), 0 20px 40px rgba(0,0,0,0.5);
+          z-index: 1;
+          transform: rotate(-1deg);
+        }
+        .b2b-stats-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+          background: var(--bg-surface);
+          padding: 2rem;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--border-color);
+        }
+        @media (max-width: 1024px) {
+          .b2b-hero-section {
+            background: radial-gradient(circle at 50% 100%, rgba(255, 168, 0, 0.12) 0%, transparent 70%);
+            padding: 3.5rem 0 2.5rem 0;
+          }
+          .b2b-hero-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .b2b-hero-title {
+            font-size: 2.3rem;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+          }
+          .b2b-hero-buttons {
+            justify-content: center;
+          }
+          .b2b-mascot-container {
+            margin-top: 2rem;
+            width: 100%;
+          }
+          .b2b-mascot-img {
+            max-width: 380px;
+            transform: none;
+          }
+          .b2b-stats-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 1.5rem;
+          }
+        }
+        @media (max-width: 480px) {
+          .b2b-hero-title {
+            font-size: 1.85rem;
+          }
+          .b2b-stats-container {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
 
     </div>
   );

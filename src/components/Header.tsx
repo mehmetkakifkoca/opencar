@@ -281,51 +281,210 @@ export default function Header() {
 
       {/* Mobile Drawer menu */}
       {mobileMenuOpen && (
-        <div className="mobile-only" style={{ background: '#FFFFFF', borderTop: '1px solid #E5E7EB', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div 
+          className="mobile-only mobile-drawer" 
+          style={{ 
+            position: 'fixed',
+            top: '56px',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(255, 255, 255, 0.98)', 
+            backdropFilter: 'blur(10px)',
+            borderTop: '1px solid #E5E7EB', 
+            padding: '1.5rem', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '1.5rem',
+            zIndex: 999,
+            overflowY: 'auto',
+            height: 'calc(100vh - 56px)'
+          }}
+        >
           
+          {/* Section Selector Grid for Mobile */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            <span style={{ fontWeight: 700, color: '#FFA800', fontSize: '0.8rem', textTransform: 'uppercase' }}>Bereiche</span>
-            <Link to="/werkstatt" onClick={handleLinkClick} style={{ color: activeSection === 'werkstatt' ? '#000' : '#6B7280', fontWeight: 600, paddingLeft: '0.5rem' }}>Werkstatt</Link>
-            <Link to="/autohandel" onClick={handleLinkClick} style={{ color: activeSection === 'autohandel' ? '#000' : '#6B7280', fontWeight: 600, paddingLeft: '0.5rem' }}>Autohandel</Link>
-            <Link to="/shop" onClick={handleLinkClick} style={{ color: activeSection === 'shop' ? '#000' : '#6B7280', fontWeight: 600, paddingLeft: '0.5rem' }}>Carvantooo Shop</Link>
-            <Link to="/b2b" onClick={handleLinkClick} style={{ color: activeSection === 'b2b' ? '#000' : '#6B7280', fontWeight: 600, paddingLeft: '0.5rem' }}>B2B Partner</Link>
+            <span style={{ fontWeight: 800, color: '#FFA800', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Bereiche</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem' }}>
+              <Link 
+                to="/werkstatt" 
+                onClick={handleLinkClick} 
+                style={{ 
+                  background: activeSection === 'werkstatt' ? '#000000' : '#F3F4F6', 
+                  color: activeSection === 'werkstatt' ? '#FFFFFF' : '#1F2937', 
+                  fontWeight: 700, 
+                  fontSize: '0.85rem',
+                  padding: '0.75rem',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  transition: 'all 0.2s'
+                }}
+              >
+                🛠️ Werkstatt
+              </Link>
+              <Link 
+                to="/autohandel" 
+                onClick={handleLinkClick} 
+                style={{ 
+                  background: activeSection === 'autohandel' ? '#000000' : '#F3F4F6', 
+                  color: activeSection === 'autohandel' ? '#FFFFFF' : '#1F2937', 
+                  fontWeight: 700, 
+                  fontSize: '0.85rem',
+                  padding: '0.75rem',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  transition: 'all 0.2s'
+                }}
+              >
+                🔑 Autohandel
+              </Link>
+              <Link 
+                to="/shop" 
+                onClick={handleLinkClick} 
+                style={{ 
+                  background: activeSection === 'shop' ? '#000000' : '#F3F4F6', 
+                  color: activeSection === 'shop' ? '#FFFFFF' : '#1F2937', 
+                  fontWeight: 700, 
+                  fontSize: '0.85rem',
+                  padding: '0.75rem',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  transition: 'all 0.2s'
+                }}
+              >
+                🛒 Shop
+              </Link>
+              <Link 
+                to="/b2b" 
+                onClick={handleLinkClick} 
+                style={{ 
+                  background: activeSection === 'b2b' ? '#000000' : '#F3F4F6', 
+                  color: activeSection === 'b2b' ? '#FFFFFF' : '#1F2937', 
+                  fontWeight: 700, 
+                  fontSize: '0.85rem',
+                  padding: '0.75rem',
+                  borderRadius: '6px',
+                  textAlign: 'center',
+                  transition: 'all 0.2s'
+                }}
+              >
+                💼 B2B Partner
+              </Link>
+            </div>
           </div>
 
           <div style={{ height: '1px', background: '#E5E7EB' }} />
 
-          {/* Context Menu for Mobile */}
-          {activeSection === 'werkstatt' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <span style={{ fontWeight: 700, color: '#000', fontSize: '0.8rem', textTransform: 'uppercase' }}>Werkstatt Menu</span>
-              <Link to="/werkstatt/leistungen" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Leistungen</Link>
-              <Link to="/werkstatt/preise" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Preise</Link>
-              <Link to="/werkstatt/ueber-uns" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Über uns</Link>
-              <Link to="/werkstatt/faq" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>FAQ</Link>
-              <Link to="/werkstatt/kontakt" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Kontakt</Link>
-            </div>
-          )}
+          {/* Context Menu for Mobile with nice list style */}
+          {activeSection !== 'none' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+              <span style={{ fontWeight: 800, color: '#111827', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                {activeSection === 'werkstatt' && 'Werkstatt Menü'}
+                {activeSection === 'autohandel' && 'Autohandel Menü'}
+                {activeSection === 'b2b' && 'B2B Menü'}
+                {activeSection === 'shop' && 'Shop Menü'}
+              </span>
+              
+              {activeSection === 'werkstatt' && (
+                <>
+                  <Link to="/werkstatt/leistungen" onClick={handleLinkClick} className="mobile-nav-link">Unsere Leistungen</Link>
+                  <Link to="/werkstatt/preise" onClick={handleLinkClick} className="mobile-nav-link">Preise</Link>
+                  <Link to="/werkstatt/ueber-uns" onClick={handleLinkClick} className="mobile-nav-link">Über uns</Link>
+                  <Link to="/werkstatt/faq" onClick={handleLinkClick} className="mobile-nav-link">FAQ / Fragen</Link>
+                  <Link to="/werkstatt/kontakt" onClick={handleLinkClick} className="mobile-nav-link">Kontakt & Standort</Link>
+                </>
+              )}
 
-          {activeSection === 'autohandel' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <span style={{ fontWeight: 700, color: '#000', fontSize: '0.8rem', textTransform: 'uppercase' }}>Autohandel Menu</span>
-              <Link to="/autohandel/fahrzeuge" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Fahrzeuge</Link>
-              <Link to="/autohandel/anfrage" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Anfrage</Link>
-              <Link to="/autohandel/finanzierung" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Finanzierung</Link>
-              <Link to="/autohandel/faq" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>FAQ</Link>
-              <Link to="/autohandel/kontakt" onClick={handleLinkClick} style={{ color: '#4B5563', paddingLeft: '0.5rem' }}>Kontakt</Link>
+              {activeSection === 'autohandel' && (
+                <>
+                  <Link to="/autohandel/fahrzeuge" onClick={handleLinkClick} className="mobile-nav-link">Fahrzeugbestand</Link>
+                  <Link to="/autohandel/anfrage" onClick={handleLinkClick} className="mobile-nav-link">Fahrzeuganfrage</Link>
+                  <Link to="/autohandel/finanzierung" onClick={handleLinkClick} className="mobile-nav-link">Finanzierung & Raten</Link>
+                  <Link to="/autohandel/faq" onClick={handleLinkClick} className="mobile-nav-link">FAQ / Fragen</Link>
+                  <Link to="/autohandel/kontakt" onClick={handleLinkClick} className="mobile-nav-link">Kontakt & Beratung</Link>
+                </>
+              )}
+
+              {activeSection === 'b2b' && (
+                <>
+                  <Link to="/b2b" onClick={handleLinkClick} className="mobile-nav-link">Partner Übersicht</Link>
+                  <Link to="/b2b/leistungen" onClick={handleLinkClick} className="mobile-nav-link">Logistik & Leistungen</Link>
+                  <Link to="/b2b/familien-werkstaetten" onClick={handleLinkClick} className="mobile-nav-link">Partnernetzwerk</Link>
+                  <Link to="/b2b/faq" onClick={handleLinkClick} className="mobile-nav-link">B2B FAQ</Link>
+                  <Link to="/b2b/kontakt" onClick={handleLinkClick} className="mobile-nav-link">B2B Kontakt</Link>
+                </>
+              )}
+
+              {activeSection === 'shop' && (
+                <>
+                  <Link to="/shop" onClick={handleLinkClick} className="mobile-nav-link">Shop Katalog</Link>
+                  <Link to="/shop/kategorie/alle" onClick={handleLinkClick} className="mobile-nav-link">Kategorien durchsuchen</Link>
+                </>
+              )}
             </div>
           )}
 
           <div style={{ height: '1px', background: '#E5E7EB' }} />
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <Link to="/auth/login" onClick={handleLinkClick} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#4B5563' }}>
-              <User size={18} /> Kundenportal Login
+          {/* User Portal and Call to Action */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <Link 
+              to="/auth/login" 
+              onClick={handleLinkClick} 
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                gap: '0.5rem', 
+                color: '#1F2937',
+                background: '#FFFFFF',
+                border: '1px solid #D1D5DB',
+                padding: '0.75rem',
+                borderRadius: '6px',
+                fontWeight: 600,
+                fontSize: '0.9rem'
+              }}
+            >
+              <User size={16} /> Kundenportal Login
             </Link>
-            <Link to="/werkstatt/terminbuchung" onClick={handleLinkClick} className="btn btn-primary" style={{ width: '100%', background: '#FFA800', color: '#000', borderRadius: '4px' }}>
-              <Calendar size={18} /> TERMIN BUCHEN
+            <Link 
+              to="/werkstatt/terminbuchung" 
+              onClick={handleLinkClick} 
+              className="btn btn-primary" 
+              style={{ 
+                width: '100%', 
+                background: '#FFA800', 
+                color: '#000', 
+                borderRadius: '6px',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                padding: '0.8rem',
+                border: 'none',
+                boxShadow: '0 4px 10px rgba(255, 168, 0, 0.2)'
+              }}
+            >
+              <Calendar size={16} /> TERMIN ONLINE BUCHEN
             </Link>
           </div>
+
+          <div style={{ height: '1px', background: '#E5E7EB' }} />
+
+          {/* Quick Info contacts at the bottom for mobile */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', padding: '0.2rem 0.5rem', fontSize: '0.82rem', color: '#6B7280' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <Phone size={14} style={{ color: '#FFA800' }} />
+              <a href={`tel:${topPhone.replace(/\s+/g, '')}`} style={{ color: '#111827', fontWeight: 600 }}>{topPhone}</a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <Clock size={14} />
+              <span>{topHours}</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <MapPin size={14} />
+              <span>{topAddress}</span>
+            </div>
+          </div>
+
         </div>
       )}
 
@@ -341,6 +500,34 @@ export default function Header() {
           background-color: #F3F4F6 !important;
           color: #000000 !important;
           padding-left: 1.5rem !important;
+        }
+        .mobile-nav-link {
+          display: flex;
+          align-items: center;
+          padding: 0.6rem 0.5rem;
+          color: #4B5563;
+          font-weight: 600;
+          font-size: 0.92rem;
+          border-radius: 4px;
+          transition: all 0.2s;
+        }
+        .mobile-nav-link:hover {
+          background-color: #F3F4F6;
+          color: #000;
+          padding-left: 0.8rem;
+        }
+        .mobile-drawer {
+          animation: slideDownMenu 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideDownMenu {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         @media (max-width: 1024px) {
           .desktop-only {

@@ -25,46 +25,21 @@ export default function AutohandelHome() {
     <div style={{ animation: 'fadeInUp 0.4s ease-out' }}>
       
       {/* 1. HERO SECTION */}
-      <section className="section" style={{ 
-        background: 'linear-gradient(90deg, #FFFCF7 0%, #FFF5E5 40%, #FFA800 100%)', 
-        borderBottom: '1px solid var(--border-color)', 
-        padding: '6rem 0' 
-      }}>
+      <section className="autohandel-hero-section">
         <div className="container grid-2" style={{ alignItems: 'center' }}>
-          <div>
+          <div className="autohandel-hero-content">
             {/* Header Badge */}
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              background: 'rgba(255, 168, 0, 0.06)',
-              border: '1px solid rgba(255, 168, 0, 0.3)',
-              padding: '0.35rem 0.8rem',
-              borderRadius: '4px',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              color: '#D48C00',
-              letterSpacing: '0.05em',
-              textTransform: 'uppercase',
-              marginBottom: '2rem'
-            }}>
+            <div className="autohandel-badge">
               🔑 WERKSTATTGEPRÜFT <span style={{ color: '#D1D5DB', margin: '0 0.25rem' }}>·</span> BESTDRIVE PARTNER
             </div>
-
+ 
             {/* Main Heading */}
-            <h1 style={{ 
-              fontSize: '3.6rem', 
-              fontWeight: 900, 
-              color: '#111827', 
-              lineHeight: '1.05', 
-              marginBottom: '1.5rem', 
-              fontFamily: 'var(--font-heading)' 
-            }}>
+            <h1 className="autohandel-hero-title">
               GEBRAUCHTWAGEN<br />
               <span style={{ color: '#FFA800' }}>MIT VERTRAUEN</span><br />
               KAUFEN.
             </h1>
-
+ 
             {/* Description */}
             <p style={{ 
               fontSize: '1rem', 
@@ -75,9 +50,9 @@ export default function AutohandelHome() {
             }}>
               Jedes Fahrzeug wird in unserer eigenen Meisterwerkstatt geprüft, aufbereitet und mit Garantie übergeben. Persönliche Beratung statt anonymem Massenhandel.
             </p>
-
+ 
             {/* CTA Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+            <div className="autohandel-hero-buttons">
               <Link 
                 to="/autohandel/fahrzeuge" 
                 className="btn" 
@@ -116,12 +91,12 @@ export default function AutohandelHome() {
                 ANFRAGE STELLEN
               </Link>
             </div>
-
+ 
             {/* Divider */}
             <div style={{ width: '100%', height: '1px', background: 'rgba(0,0,0,0.06)', margin: '2rem 0' }} />
-
+ 
             {/* Stats Row */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+            <div className="autohandel-stats-grid">
               <div>
                 <strong style={{ display: 'block', fontSize: '2rem', color: '#111827', fontWeight: 800 }}>10</strong>
                 <span style={{ fontSize: '0.75rem', color: '#6B7280', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>Fahrzeuge</span>
@@ -136,9 +111,9 @@ export default function AutohandelHome() {
               </div>
             </div>
           </div>
-
+ 
           {/* Right Mascot Column */}
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          <div className="autohandel-mascot-container">
             <div style={{
               position: 'absolute',
               top: '-10%',
@@ -151,13 +126,7 @@ export default function AutohandelHome() {
             <img 
               src={mascotAutohandel} 
               alt="OpenCarBox Autohandel Alien" 
-              style={{
-                width: '110%',
-                maxHeight: '500px',
-                objectFit: 'contain',
-                zIndex: 1,
-                transform: 'translateX(25px)'
-              }}
+              className="autohandel-mascot-img"
             />
           </div>
         </div>
@@ -240,6 +209,107 @@ export default function AutohandelHome() {
           </div>
         </div>
       </section>
+      {/* Styles for Autohandel Home Page */}
+      <style>{`
+        .autohandel-hero-section {
+          background: linear-gradient(90deg, #FFFCF7 0%, #FFF5E5 40%, #FFA800 100%);
+          border-bottom: 1px solid var(--border-color);
+          padding: 6rem 0;
+        }
+        .autohandel-hero-content {
+          text-align: left;
+        }
+        .autohandel-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          background: rgba(255, 168, 0, 0.06);
+          border: 1px solid rgba(255, 168, 0, 0.3);
+          padding: 0.35rem 0.8rem;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #D48C00;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+        }
+        .autohandel-hero-title {
+          font-size: 3.6rem; 
+          font-weight: 900; 
+          color: #111827; 
+          line-height: 1.05; 
+          margin-bottom: 1.5rem; 
+          font-family: var(--font-heading);
+        }
+        .autohandel-hero-buttons {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-bottom: 2.5rem;
+        }
+        .autohandel-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+        .autohandel-mascot-container {
+          display: flex;
+          justify-content: center;
+          position: relative;
+        }
+        .autohandel-mascot-img {
+          width: 110%;
+          max-height: 500px;
+          object-fit: contain;
+          z-index: 1;
+          transform: translateX(25px);
+        }
+        @media (max-width: 1024px) {
+          .autohandel-hero-section {
+            background: linear-gradient(180deg, #FFFCF7 0%, #FFF5E5 70%, rgba(255, 168, 0, 0.15) 100%);
+            padding: 3.5rem 0 2.5rem 0;
+          }
+          .autohandel-hero-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .autohandel-hero-title {
+            font-size: 2.5rem;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+          }
+          .autohandel-hero-buttons {
+            justify-content: center;
+          }
+          .autohandel-stats-grid {
+            width: 100%;
+            justify-content: center;
+          }
+          .autohandel-mascot-container {
+            margin-top: 2rem;
+            width: 100%;
+          }
+          .autohandel-mascot-img {
+            width: 100%;
+            max-width: 380px;
+            transform: none;
+          }
+        }
+        @media (max-width: 480px) {
+          .autohandel-hero-title {
+            font-size: 2rem;
+          }
+          .autohandel-stats-grid {
+            gap: 0.5rem;
+          }
+          .autohandel-stats-grid strong {
+            font-size: 1.5rem !important;
+          }
+        }
+      `}</style>
 
     </div>
   );

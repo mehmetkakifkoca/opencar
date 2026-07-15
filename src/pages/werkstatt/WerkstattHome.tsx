@@ -32,60 +32,25 @@ export default function WerkstattHome() {
     <div style={{ animation: 'fadeInUp 0.4s ease-out' }}>
       
       {/* 1. HERO SECTION */}
-      <section className="section" style={{ 
-        background: 'radial-gradient(circle at 82% 50%, #FFA800 0%, #FFD685 25%, #FCFAF5 60%, #FCFAF5 100%)', 
-        borderBottom: '1px solid #E5E7EB', 
-        padding: '5rem 0 4rem 0',
-        overflow: 'hidden',
-        position: 'relative'
-      }}>
+      <section className="hero-section" style={{ overflow: 'hidden', position: 'relative' }}>
         <div className="container grid-2" style={{ alignItems: 'center' }}>
-          <div>
+          <div className="hero-content">
             {/* Top Badge */}
-            <div style={{ 
-              marginBottom: '1.5rem', 
-              display: 'inline-flex', 
-              alignItems: 'center',
-              border: '1px solid rgba(255, 168, 0, 0.4)',
-              background: '#FFFFFF',
-              color: '#B27600',
-              padding: '0.4rem 0.8rem',
-              borderRadius: '4px',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase'
-            }}>
+            <div className="hero-badge">
               • BESTDRIVE PARTNER · WIEN 1030
             </div>
-
+ 
             {/* Heading */}
-            <h1 style={{ 
-              fontSize: '3.6rem', 
-              lineHeight: '1.1', 
-              marginBottom: '0.5rem',
-              color: '#111827',
-              fontWeight: 800,
-              fontFamily: 'var(--font-heading)',
-              letterSpacing: '-0.02em'
-            }}>
+            <h1 className="hero-title">
               WERKSTATTSERVICE<br />
               IN WIEN.
             </h1>
-
+ 
             {/* Subheading */}
-            <h2 style={{
-              fontSize: '2.1rem',
-              color: '#FFA800',
-              fontWeight: 800,
-              fontFamily: 'var(--font-heading)',
-              marginBottom: '2rem',
-              letterSpacing: '-0.01em',
-              lineHeight: '1.2'
-            }}>
+            <h2 className="hero-subtitle">
               WEIL DEIN AUTO ZUR FAMILIE GEHÖRT.
             </h2>
-
+ 
             {/* Descriptions */}
             <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '1rem', color: '#374151', fontWeight: 500 }}>
               Ihre persönliche Familienwerkstatt in Wien. Bei OpenCarBox kümmern wir uns um Ihr Fahrzeug so, als wäre es unser eigenes.
@@ -93,9 +58,9 @@ export default function WerkstattHome() {
             <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '2.5rem', color: '#4B5563' }}>
               Ehrliche Beratung, transparente Preise und zuverlässiger Service stehen bei uns an erster Stelle. Ob Inspektion, Reparatur oder Pickerl – wir sorgen dafür, dass Ihr Auto sicher und zuverlässig unterwegs ist.
             </p>
-
+ 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-buttons">
               <Link 
                 to="/werkstatt/terminbuchung" 
                 className="btn" 
@@ -139,24 +104,24 @@ export default function WerkstattHome() {
           {/* Empty column to reserve space on desktop */}
           <div className="desktop-only" style={{ height: '400px' }} />
         </div>
-
+ 
         {/* Absolute Mascot aligned to the right viewport edge */}
         <img 
           src={mascotWerkstatt} 
           alt="OpenCarBox Alien Next To Tire" 
           className="hero-mascot-abs"
         />
-
+ 
         {/* Stats Row */}
         <div className="container" style={{ marginTop: '4.5rem', paddingTop: '2.5rem', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
+          <div className="stats-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
             {[
               { num: '4+', text: 'Jahre Erfahrung' },
               { num: '100+', text: 'Bewertungen' },
               { num: '10', text: 'Leistungen' },
               { num: '§57a', text: 'Zertifiziert' }
             ].map((stat, i) => (
-              <div key={i} style={{ flex: '1 1 200px', minWidth: '150px' }}>
+              <div key={i} className="stats-item">
                 <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#111827', fontFamily: 'var(--font-heading)', lineHeight: '1' }}>{stat.num}</div>
                 <div style={{ fontSize: '0.78rem', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.06em', marginTop: '0.4rem', fontWeight: 700 }}>{stat.text}</div>
               </div>
@@ -655,6 +620,51 @@ export default function WerkstattHome() {
       </section>
 
       <style>{`
+        .hero-section {
+          background: radial-gradient(circle at 82% 50%, #FFA800 0%, #FFD685 25%, #FCFAF5 60%, #FCFAF5 100%);
+          border-bottom: 1px solid #E5E7EB;
+          padding: 5rem 0 4rem 0;
+        }
+        .hero-content {
+          text-align: left;
+        }
+        .hero-badge {
+          margin-bottom: 1.5rem; 
+          display: inline-flex; 
+          align-items: center;
+          border: 1px solid rgba(255, 168, 0, 0.4);
+          background: #FFFFFF;
+          color: #B27600;
+          padding: 0.4rem 0.8rem;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .hero-title {
+          font-size: 3.6rem;
+          line-height: 1.1;
+          margin-bottom: 0.5rem;
+          color: #111827;
+          font-weight: 800;
+          font-family: var(--font-heading);
+          letter-spacing: -0.02em;
+        }
+        .hero-subtitle {
+          font-size: 2.1rem;
+          color: #FFA800;
+          font-weight: 800;
+          font-family: var(--font-heading);
+          margin-bottom: 2rem;
+          letter-spacing: -0.01em;
+          line-height: 1.2;
+        }
+        .hero-buttons {
+          display: flex; 
+          gap: 1rem; 
+          flex-wrap: wrap;
+        }
         .hero-mascot-abs {
           position: absolute;
           right: 0;
@@ -668,17 +678,61 @@ export default function WerkstattHome() {
           pointer-events: none;
           user-select: none;
         }
+        .stats-item {
+          flex: 1 1 200px;
+          min-width: 150px;
+        }
         @media (max-width: 1024px) {
+          .hero-section {
+            background: radial-gradient(circle at 50% 100%, rgba(255, 168, 0, 0.15) 0%, rgba(255, 214, 133, 0.06) 40%, #FCFAF5 100%);
+            padding: 3.5rem 0 2.5rem 0;
+          }
+          .hero-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-title {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
+          }
+          .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+          }
+          .hero-buttons {
+            justify-content: center;
+          }
           .hero-mascot-abs {
             position: relative;
             right: auto;
             top: auto;
             transform: none;
-            margin: 2rem auto 0 auto;
-            max-width: 450px;
+            margin: 2.5rem auto 0 auto;
+            max-width: 420px;
             width: 100%;
             height: auto;
             display: block;
+          }
+          .stats-row {
+            justify-content: center !important;
+            gap: 1.5rem !important;
+          }
+          .stats-item {
+            text-align: center;
+            flex: 1 1 130px;
+            min-width: 120px;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-title {
+            font-size: 2rem;
+          }
+          .hero-subtitle {
+            font-size: 1.25rem;
           }
         }
       `}</style>
