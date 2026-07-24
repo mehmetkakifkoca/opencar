@@ -579,7 +579,7 @@ export default function WerkstattHome() {
             Alle Aktionspreise in Zusammenarbeit mit BestDrive by Continental. Gültig für Privatkunden. Nicht kombinierbar mit anderen Rabatten.
           </p>
           <a 
-            href="https://bestdrive.at" 
+            href="https://www.bestdrive.at/autowerkstatt/opencarbox-gmbh-wien-rennweg.html" 
             target="_blank" 
             rel="noreferrer" 
             style={{ 
