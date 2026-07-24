@@ -71,7 +71,7 @@ export default function AutohandelFinanzierung() {
           }
         ].map((item, idx) => (
           <div key={idx} className="glass-card" style={{ borderTop: '3px solid var(--primary)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <h3 style={{ fontSize: '1.3rem', margin: 0, color: '#FFF' }}>{item.title}</h3>
+            <h3 style={{ fontSize: '1.3rem', margin: 0, color: 'var(--text-primary)' }}>{item.title}</h3>
             <p style={{ margin: 0, fontSize: '0.9rem', lineHeight: '1.65' }}>{item.desc}</p>
           </div>
         ))}
@@ -80,7 +80,7 @@ export default function AutohandelFinanzierung() {
       {/* Loan Calculator */}
       <div className="glass-card grid-2" style={{ gap: '3rem', padding: '3rem', marginBottom: '5rem', alignItems: 'center' }}>
         <div>
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#FFF' }}>
+          <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
             <Calculator size={24} style={{ color: 'var(--primary)' }} /> Ratenrechner (Richtwert)
           </h3>
           <p style={{ fontSize: '0.95rem', marginBottom: '2rem' }}>
@@ -128,7 +128,7 @@ export default function AutohandelFinanzierung() {
         {/* Calculated rate Display */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '3rem 2rem', textAlign: 'center', boxShadow: 'var(--shadow-glow)' }}>
           <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Simulierte Monatsrate</span>
-          <div style={{ fontSize: '3.5rem', fontWeight: 800, color: '#FFF', margin: '0.5rem 0', fontFamily: 'var(--font-heading)' }}>
+          <div style={{ fontSize: '3.5rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0.5rem 0', fontFamily: 'var(--font-heading)' }}>
             € {monthlyPayment}
           </div>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
@@ -166,7 +166,7 @@ export default function AutohandelFinanzierung() {
               }}>
                 {idx + 1}
               </div>
-              <h3 style={{ fontSize: '1.15rem', marginTop: '0.5rem', color: '#FFF' }}>{st.title}</h3>
+              <h3 style={{ fontSize: '1.15rem', marginTop: '0.5rem', color: 'var(--text-primary)' }}>{st.title}</h3>
               <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.6' }}>{st.desc}</p>
             </div>
           ))}

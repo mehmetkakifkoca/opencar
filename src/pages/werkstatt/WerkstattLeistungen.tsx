@@ -116,7 +116,7 @@ export default function WerkstattLeistungen() {
                 <span className="badge">{service.cat}</span>
                 <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '0.95rem' }}>{service.price}</span>
               </div>
-              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: '#FFF' }}>{service.name}</h3>
+              <h3 style={{ fontSize: '1.3rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{service.name}</h3>
               <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
                 {service.desc}
               </p>
@@ -143,7 +143,7 @@ export default function WerkstattLeistungen() {
         gap: '2rem' 
       }}>
         <div>
-          <h3 style={{ fontSize: '1.75rem', marginBottom: '0.5rem', color: '#FFF' }}>Bereit für den nächsten Service?</h3>
+          <h3 style={{ fontSize: '1.75rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Bereit für den nächsten Service?</h3>
           <p style={{ margin: 0, fontSize: '1rem' }}>Buchen Sie Ihren Wunschtermin unkompliziert direkt online in wenigen Schritten.</p>
         </div>
         <Link to="/werkstatt/terminbuchung" className="btn btn-primary">

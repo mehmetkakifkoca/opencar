@@ -150,7 +150,7 @@ export default function AutohandelFahrzeuge() {
         <div style={{ minWidth: '220px', display: 'flex', flexDirection: 'column', gap: '0.25rem', flex: 1 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
             <span>Max. Preis:</span>
-            <strong style={{ color: '#FFF' }}>€ {maxPrice.toLocaleString('de-DE')}</strong>
+            <strong style={{ color: 'var(--text-primary)' }}>€ {maxPrice.toLocaleString('de-DE')}</strong>
           </div>
           <input 
             type="range" 
@@ -196,7 +196,7 @@ export default function AutohandelFahrzeuge() {
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                    <h3 style={{ fontSize: '1.2rem', margin: 0, color: '#FFF' }}>{veh.brand} {veh.model}</h3>
+                    <h3 style={{ fontSize: '1.2rem', margin: 0, color: 'var(--text-primary)' }}>{veh.brand} {veh.model}</h3>
                   </div>
                   <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--primary)' }}>
                     € {veh.price.toLocaleString('de-DE')}
@@ -237,7 +237,7 @@ export default function AutohandelFahrzeuge() {
       {/* Lower Banner CTA */}
       <div className="glass-card grid-2" style={{ alignItems: 'center', padding: '3rem' }}>
         <div>
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '0.5rem', color: '#FFF' }}>Suchen Sie ein bestimmtes Modell?</h3>
+          <h3 style={{ fontSize: '1.6rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>Suchen Sie ein bestimmtes Modell?</h3>
           <p style={{ margin: 0 }}>Übermitteln Sie uns einfach eine Suchanfrage. Wir importieren und besorgen Ihr Wunschauto.</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

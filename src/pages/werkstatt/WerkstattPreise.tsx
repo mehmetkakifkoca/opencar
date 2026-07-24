@@ -40,7 +40,7 @@ export default function WerkstattPreise() {
           <tbody>
             {priceList.map((row, idx) => (
               <tr key={idx}>
-                <td style={{ fontWeight: 600, color: '#FFF' }}>{row.name}</td>
+                <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{row.name}</td>
                 <td>{row.desc}</td>
                 <td style={{ fontWeight: 700, color: 'var(--primary)', textAlign: 'right' }}>{row.price}</td>
               </tr>
@@ -82,18 +82,18 @@ export default function WerkstattPreise() {
       {/* Payment methods & Help */}
       <div className="glass-card grid-2" style={{ alignItems: 'center', padding: '2.5rem' }}>
         <div>
-          <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#FFF' }}>Gut zu wissen</h3>
+          <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>Gut zu wissen</h3>
           <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.7' }}>
             Zahlungen erfolgen bequem nach Fertigstellung und Übergabe Ihres Fahrzeugs.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#FFF', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', fontSize: '0.9rem' }}>
               <Banknote size={18} style={{ color: 'var(--primary)' }} /> Barzahlung
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#FFF', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', fontSize: '0.9rem' }}>
               <CreditCard size={18} style={{ color: 'var(--primary)' }} /> Bankomat (Debit)
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#FFF', fontSize: '0.9rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-primary)', fontSize: '0.9rem' }}>
               <CreditCard size={18} style={{ color: 'var(--primary)' }} /> Visa / Mastercard
             </div>
           </div>

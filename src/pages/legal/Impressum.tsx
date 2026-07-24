@@ -8,7 +8,7 @@ export default function Impressum() {
       <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', lineHeight: '1.7' }}>
         <div>
           <h3 style={{ color: 'var(--primary)', marginBottom: '0.5rem' }}>Diensteanbieter & Medieninhaber</h3>
-          <p style={{ color: '#FFF', margin: 0, fontWeight: 600 }}>OpenCarBox GmbH</p>
+          <p style={{ color: 'var(--text-primary)', margin: 0, fontWeight: 600 }}>OpenCarBox GmbH</p>
           <p style={{ margin: 0 }}>Rennweg 76, 1030 Wien</p>
           <p style={{ margin: 0 }}>Österreich</p>
         </div>

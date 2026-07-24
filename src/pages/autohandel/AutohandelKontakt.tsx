@@ -69,7 +69,7 @@ export default function AutohandelKontakt() {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Fahrzeug- oder Beratungsanfrage</h3>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Fahrzeug- oder Beratungsanfrage</h3>
               
               <div className="grid-2" style={{ gap: '1.5rem' }}>
                 <div className="form-group">
@@ -125,13 +125,13 @@ export default function AutohandelKontakt() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           <div className="glass-card">
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: '#FFF' }}>Showroom Details</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Showroom Details</h3>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <MapPin size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Ausstellungsplatz Wien 1100</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Ausstellungsplatz Wien 1100</div>
                   <div>Favoritenstraße 175, 1100 Wien</div>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function AutohandelKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Phone size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Telefon</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Telefon</div>
                   <div>01 9972708 / 0699 14447780</div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function AutohandelKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Mail size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>E-Mail</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>E-Mail</div>
                   <div>office@opencarbox.co.at</div>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function AutohandelKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Clock size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Öffnungszeiten</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Öffnungszeiten</div>
                   <div>Mo–Fr 08:00–18:00 / Sa 10:00–15:00 <br /> Sonntag geschlossen</div>
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function AutohandelKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.25rem' }}>
                 <User size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Persönlicher Ansprechpartner</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Persönlicher Ansprechpartner</div>
                   <div>Metehan Arac (Geschäftsführer & KFZ-Meister)</div>
                 </div>
               </div>

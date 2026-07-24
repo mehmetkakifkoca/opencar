@@ -181,7 +181,7 @@ export default function ServiceDetail() {
 
         {/* Sidebar Info */}
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'sticky', top: '120px' }}>
-          <h3 style={{ fontSize: '1.25rem', margin: 0, color: '#FFF' }}>Details zum Service</h3>
+          <h3 style={{ fontSize: '1.25rem', margin: 0, color: 'var(--text-primary)' }}>Details zum Service</h3>
           
           <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
@@ -189,7 +189,7 @@ export default function ServiceDetail() {
             <Euro size={20} style={{ color: 'var(--primary)' }} />
             <div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Preis</div>
-              <div style={{ fontWeight: 700, color: '#FFF' }}>{srv.price}</div>
+              <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{srv.price}</div>
             </div>
           </div>
 
@@ -197,7 +197,7 @@ export default function ServiceDetail() {
             <Clock size={20} style={{ color: 'var(--primary)' }} />
             <div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Dauer</div>
-              <div style={{ fontWeight: 700, color: '#FFF' }}>{srv.duration}</div>
+              <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{srv.duration}</div>
             </div>
           </div>
 
@@ -205,7 +205,7 @@ export default function ServiceDetail() {
             <Tag size={20} style={{ color: 'var(--primary)' }} />
             <div>
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Kategorie</div>
-              <div style={{ fontWeight: 700, color: '#FFF' }}>{srv.category}</div>
+              <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{srv.category}</div>
             </div>
           </div>
 

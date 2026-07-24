@@ -255,7 +255,7 @@ export default function ShopHome() {
               <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, justifyContent: 'space-between' }}>
                 <div>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>SKU: {prod.sku}</span>
-                  <h3 style={{ fontSize: '1.1rem', margin: '0.25rem 0', color: '#FFF' }}>{prod.name}</h3>
+                  <h3 style={{ fontSize: '1.1rem', margin: '0.25rem 0', color: 'var(--text-primary)' }}>{prod.name}</h3>
                   <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--primary)', marginTop: '0.5rem' }}>
                     € {prod.price.toFixed(2)}
                   </div>
@@ -274,7 +274,7 @@ export default function ShopHome() {
         {isCartOpen && (
           <div className="glass-card" style={{ position: 'sticky', top: '120px', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3 style={{ fontSize: '1.2rem', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#FFF' }}>
+              <h3 style={{ fontSize: '1.2rem', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-primary)' }}>
                 <ShoppingBag size={18} /> Ihr Warenkorb
               </h3>
               <button onClick={() => setIsCartOpen(false)} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '0.8rem' }}>Schließen</button>
@@ -293,7 +293,7 @@ export default function ShopHome() {
                   {cart.map((item, idx) => (
                     <div key={idx} style={{ display: 'flex', gap: '0.75rem', fontSize: '0.85rem' }}>
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontWeight: 600, color: '#FFF' }}>{item.product.name}</div>
+                        <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{item.product.name}</div>
                         <div style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>{item.product.brand} · € {item.product.price.toFixed(2)}</div>
                       </div>
                       
@@ -311,7 +311,7 @@ export default function ShopHome() {
 
                 <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, fontSize: '1rem', color: '#FFF' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>
                   <span>Gesamtsumme:</span>
                   <span style={{ color: 'var(--primary)' }}>€ {totalSum.toFixed(2)}</span>
                 </div>
@@ -340,7 +340,7 @@ export default function ShopHome() {
             {checkoutStep === 1 ? (
               <form onSubmit={handleCheckoutSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <h3 style={{ margin: 0, fontSize: '1.35rem', color: '#FFF' }}>Sicher bezahlen mit Stripe</h3>
+                  <h3 style={{ margin: 0, fontSize: '1.35rem', color: 'var(--text-primary)' }}>Sicher bezahlen mit Stripe</h3>
                   <span className="badge">Secured</span>
                 </div>
 

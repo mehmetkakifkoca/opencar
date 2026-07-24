@@ -60,7 +60,7 @@ export default function WerkstattKontakt() {
           { title: 'Familienwerkstatt seit 2020', txt: 'Verankert im Herzen von Wien Landstraße (1030). Ein Partner, dem man vertraut.' }
         ].map((v, i) => (
           <div key={i} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', borderLeft: '3px solid var(--primary)' }}>
-            <h4 style={{ color: '#FFF', fontSize: '1.1rem', margin: 0 }}>{v.title}</h4>
+            <h4 style={{ color: 'var(--text-primary)', fontSize: '1.1rem', margin: 0 }}>{v.title}</h4>
             <p style={{ margin: 0, fontSize: '0.85rem' }}>{v.txt}</p>
           </div>
         ))}
@@ -86,7 +86,7 @@ export default function WerkstattKontakt() {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Termin oder Service anfragen</h3>
+              <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Termin oder Service anfragen</h3>
               
               <div className="grid-2" style={{ gap: '1rem' }}>
                 <div className="form-group">
@@ -156,13 +156,13 @@ export default function WerkstattKontakt() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           <div className="glass-card">
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: '#FFF' }}>Standort Details</h3>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Standort Details</h3>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <MapPin size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Werkstatt Wien</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Werkstatt Wien</div>
                   <div>Rennweg 76, 1030 Wien</div>
                 </div>
               </div>
@@ -170,7 +170,7 @@ export default function WerkstattKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Phone size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Telefon</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Telefon</div>
                   <div>01 7981310</div>
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function WerkstattKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Mail size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>E-Mail</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>E-Mail</div>
                   <div>office@opencarbox.co.at</div>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function WerkstattKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start' }}>
                 <Clock size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Arbeitszeiten</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Arbeitszeiten</div>
                   <div>Mo–Fr 08:00–18:00 / Sa 08:00–13:00</div>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function WerkstattKontakt() {
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'start', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.25rem' }}>
                 <Train size={20} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '0.2rem' }} />
                 <div>
-                  <div style={{ fontWeight: 600, color: '#FFF' }}>Öffentliche Anbindung</div>
+                  <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Öffentliche Anbindung</div>
                   <div style={{ fontSize: '0.9rem' }}>Straßenbahn O und 71 (Station Rennweg), S-Bahn Station Rennweg</div>
                 </div>
               </div>

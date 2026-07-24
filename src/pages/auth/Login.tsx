@@ -73,7 +73,7 @@ export default function Login() {
           <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div>
               <div style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 700, textTransform: 'uppercase' }}>Kundenportal</div>
-              <h3 style={{ margin: '0.25rem 0 0 0', fontSize: '1.25rem', color: '#FFF' }}>{userProfile.name}</h3>
+              <h3 style={{ margin: '0.25rem 0 0 0', fontSize: '1.25rem', color: 'var(--text-primary)' }}>{userProfile.name}</h3>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{userProfile.email}</span>
             </div>
 
@@ -139,7 +139,7 @@ export default function Login() {
             {/* TAB: Appointments */}
             {activeTab === 'appointments' && (
               <div>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Meine Service-Termine</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Meine Service-Termine</h3>
                 <div className="table-responsive">
                   <table className="table">
                     <thead>
@@ -157,7 +157,7 @@ export default function Login() {
                           <td style={{ color: 'var(--primary)', fontWeight: 700 }}>#{app.id}</td>
                           <td>{app.date}</td>
                           <td>{app.time} Uhr</td>
-                          <td style={{ color: '#FFF' }}>{app.service}</td>
+                          <td style={{ color: 'var(--text-primary)' }}>{app.service}</td>
                           <td>
                             <span style={{
                               background: app.status === 'Bestätigt' ? 'rgba(16,185,129,0.1)' : 'rgba(255,255,255,0.05)',
@@ -183,20 +183,20 @@ export default function Login() {
             {/* TAB: Vehicles */}
             {activeTab === 'vehicles' && (
               <div>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Fahrzeughistorie</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Fahrzeughistorie</h3>
                 
                 {mockVehicles.map((car, idx) => (
                   <div key={idx} className="grid-2" style={{ gap: '1.5rem' }}>
                     <div style={{ background: 'var(--bg-dark)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.03)' }}>
                       <div style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 700, textTransform: 'uppercase' }}>Fahrzeug</div>
-                      <h4 style={{ fontSize: '1.25rem', color: '#FFF', margin: '0.25rem 0' }}>{car.make} {car.model}</h4>
+                      <h4 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', margin: '0.25rem 0' }}>{car.make} {car.model}</h4>
                       <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Kennzeichen: {car.licensePlate} · BJ: {car.year}</div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', justifyContent: 'center' }}>
                       <div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Letzter Werkstattservice:</span>
-                        <div style={{ color: '#FFF', fontWeight: 600, fontSize: '0.95rem' }}>{car.lastService}</div>
+                        <div style={{ color: 'var(--text-primary)', fontWeight: 600, fontSize: '0.95rem' }}>{car.lastService}</div>
                       </div>
                       <div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Nächstes Pickerl (§57a):</span>
@@ -211,7 +211,7 @@ export default function Login() {
             {/* TAB: Invoices */}
             {activeTab === 'invoices' && (
               <div>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Rechnungen</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Rechnungen</h3>
                 <div className="table-responsive">
                   <table className="table">
                     <thead>
@@ -226,9 +226,9 @@ export default function Login() {
                     <tbody>
                       {mockInvoices.map((inv, idx) => (
                         <tr key={idx}>
-                          <td style={{ color: '#FFF', fontWeight: 600 }}>{inv.id}</td>
+                          <td style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{inv.id}</td>
                           <td>{inv.date}</td>
-                          <td style={{ color: '#FFF', fontWeight: 700 }}>{inv.amount}</td>
+                          <td style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{inv.amount}</td>
                           <td><span style={{ color: 'var(--success)', fontWeight: 600 }}>{inv.status}</span></td>
                           <td>
                             <a href="#download" onClick={e => { e.preventDefault(); alert('Simulierter Rechnungsdownload gestartet.'); }} style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '0.85rem' }}>
@@ -246,11 +246,11 @@ export default function Login() {
             {/* TAB: Chat/Contact */}
             {activeTab === 'contact' && (
               <div>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: '#FFF' }}>Direktnachricht an die Werkstatt</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', color: 'var(--text-primary)' }}>Direktnachricht an die Werkstatt</h3>
                 <p style={{ fontSize: '0.9rem', marginBottom: '1.5rem' }}>Haben Sie Fragen zur anstehenden Reparatur oder möchten Sie uns ein Foto eines Bauteils senden?</p>
 
                 {chatStatus ? (
-                  <div style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid var(--success)', padding: '1rem 1.5rem', borderRadius: '8px', color: '#FFF', display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                  <div style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid var(--success)', padding: '1rem 1.5rem', borderRadius: '8px', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                     <CheckCircle size={20} style={{ color: 'var(--success)' }} /> Nachricht erfolgreich übermittelt. Wir antworten in Kürze!
                   </div>
                 ) : null}
@@ -283,7 +283,7 @@ export default function Login() {
             <span style={{ background: 'var(--primary-glow)', color: 'var(--primary)', padding: '0.4rem', borderRadius: '50%', display: 'inline-flex', marginBottom: '1rem', border: '1px solid var(--border-color)' }}>
               <User size={24} />
             </span>
-            <h2 style={{ fontSize: '1.75rem', margin: 0, color: '#FFF' }}>Kundenportal Login</h2>
+            <h2 style={{ fontSize: '1.75rem', margin: 0, color: 'var(--text-primary)' }}>Kundenportal Login</h2>
             <p style={{ fontSize: '0.9rem', margin: '0.25rem 0 0 0' }}>
               {isRegistered ? 'Melden Sie sich an, um Ihre Termine einzusehen.' : 'Erstellen Sie ein sicheres Kundenkonto.'}
             </p>
