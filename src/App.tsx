@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // Layout components
 import Header from './components/Header';
@@ -37,7 +37,7 @@ import AGB from './pages/legal/AGB';
 import Datenschutz from './pages/legal/Datenschutz';
 
 function ScrollToTop() {
-  const { pathname } = window.location;
+  const { pathname } = useLocation();
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
