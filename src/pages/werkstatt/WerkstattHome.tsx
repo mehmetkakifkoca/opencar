@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { 
-  Calendar, ArrowRight, MapPin, 
-  Clock, Phone, CheckCircle
+  Calendar, ArrowRight, 
+  Phone, CheckCircle
 } from 'lucide-react';
 import mascotWerkstatt from '../../assets/opencarbox-mechanic-2.png';
 import metehanArac from '../../assets/metehan_arac.jpg';
 import teamPhoto from '../../assets/team_photo.jpg';
+import werkstattReception from '../../assets/werkstatt_reception.jpg';
 import jahresserviceImg from '../../assets/Kachel_Jahresservice_557x324.webp';
 import klimaserviceImg from '../../assets/BD_LU_KLIMA_1920x1080.avif';
 import desinfektionImg from '../../assets/BD_Keyvisual_LU_Klima_1920x1080 (1).avif';
@@ -383,60 +384,53 @@ export default function WerkstattHome() {
 
       {/* 8. KONTAKT WERKSTATT */}
       <section className="section section-alt">
-        <div className="container grid-2" style={{ alignItems: 'center' }}>
+        <div className="container grid-2" style={{ alignItems: 'center', gap: '3rem' }}>
+          {/* Left Column: Image */}
+          <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-lg)', height: '400px' }}>
+            <img 
+              src={werkstattReception} 
+              alt="OpenCarBox Werkstatt Rezeption" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+
+          {/* Right Column: Text & Contact Details */}
           <div>
-            <h2>Kommen Sie vorbei. Wien 1030.</h2>
-            <p style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
-              Kein Automat, kein Warteband, keine Vertretung. Unser Team ist persönlich für Sie da.
+            <div style={{ display: 'inline-block', width: '30px', height: '4px', background: 'var(--primary)', marginBottom: '1rem' }}></div>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, margin: '0 0 0.75rem 0', textTransform: 'uppercase', fontFamily: 'var(--font-heading)', lineHeight: '1.1' }}>
+              KOMMEN SIE VORBEI.<br />
+              <span style={{ color: 'var(--primary)' }}>WIEN 1030.</span>
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '2rem', lineHeight: '1.6' }}>
+              Kein Automat, kein Warteband, keine Vertretung. Unser Team ist persönlich für Sie da – von der ersten Frage bis zur Fahrzeugübergabe.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <MapPin size={22} style={{ color: 'var(--primary)' }} />
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '1rem' }}>Standort</h4>
-                  <span>Rennweg 76, 1030 Wien</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
+              {[
+                { label: 'ADRESSE', value: 'Rennweg 76, 1030 Wien' },
+                { label: 'TELEFON', value: '01 7981310' },
+                { label: 'ÖFFNUNGSZEITEN', value: 'Mo–Fr 08:00–18:00 Uhr, Sa 08:00–13:00 Uhr' },
+                { label: 'HOL- & BRINGSERVICE', value: 'auf Anfrage verfügbar' }
+              ].map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', fontSize: '0.95rem' }}>
+                  <div style={{ width: '150px', fontWeight: 700, color: 'var(--text-secondary)', fontSize: '0.75rem', letterSpacing: '0.05em', alignSelf: 'center' }}>
+                    {item.label}
+                  </div>
+                  <div style={{ flex: 1, fontWeight: 600, color: 'var(--text-primary)' }}>
+                    {item.value}
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <Phone size={22} style={{ color: 'var(--primary)' }} />
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '1rem' }}>Telefon</h4>
-                  <span>01 7981310</span>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <Clock size={22} style={{ color: 'var(--primary)' }} />
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '1rem' }}>Öffnungszeiten</h4>
-                  <span>Mo–Fr 08:00–18:00 / Sa 08:00–13:00</span>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <CheckCircle size={22} style={{ color: 'var(--primary)' }} />
-                <div>
-                  <h4 style={{ margin: 0, fontSize: '1rem' }}>Hol- & Bringservice</h4>
-                  <span>Auf Anfrage verfügbar</span>
-                </div>
-              </div>
+              ))}
             </div>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link to="/werkstatt/kontakt" className="btn btn-primary">Kontakt & Anfahrt</Link>
-              <a href="https://www.google.com/maps/search/OpenCarBox+GmbH+Wien+Rennweg+76/@48.193,16.384,17z" target="_blank" rel="noreferrer" className="btn btn-secondary">Route planen</a>
+              <Link to="/werkstatt/kontakt" className="btn" style={{ background: '#FFFFFF', border: '1px solid #111827', color: '#111827', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '0.05em', padding: '0.75rem 1.5rem', fontWeight: 600 }}>
+                Kontakt & Anfahrt
+              </Link>
+              <a href="https://www.google.com/maps/search/OpenCarBox+GmbH+Wien+Rennweg+76/@48.193,16.384,17z" target="_blank" rel="noreferrer" className="btn" style={{ background: 'var(--primary)', color: '#000000', fontWeight: 700, textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '0.05em', padding: '0.75rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                Route planen <ArrowRight size={16} />
+              </a>
             </div>
-          </div>
-
-          <div style={{ height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-lg)' }}>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.8829871180255!2d16.3980068!3d48.1895781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d073740263f45%3A0xe54e662df94d27ab!2sRennweg%2076%2C%201030%20Wien%2C%20Austria!5e0!3m2!1sen!2sde!4v1700000000000!5m2!1sen!2sde" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy"
-              title="Google Map OpenCarBox Rennweg"
-            />
           </div>
         </div>
       </section>
