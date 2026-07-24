@@ -127,7 +127,7 @@ export default function WerkstattFAQ() {
                     className="accordion-header"
                     onClick={() => toggleItem(activeTab, idx)}
                   >
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: isOpen ? 'var(--primary)' : '#FFF' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: isOpen ? 'var(--primary)' : 'var(--text-primary)' }}>
                       <HelpCircle size={18} style={{ color: 'var(--primary)', flexShrink: 0 }} />
                       {item.q}
                     </span>
