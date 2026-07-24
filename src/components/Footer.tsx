@@ -6,8 +6,8 @@ export default function Footer() {
     <footer style={{ background: '#080A0F', borderTop: '1px solid var(--border-color)', padding: '5rem 0 2rem 0', color: 'var(--text-secondary)' }}>
       <div className="container">
         
-        {/* Five columns grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '2rem', marginBottom: '4rem' }}>
+        {/* Four columns grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', marginBottom: '4rem' }}>
           
           {/* Column 1: Werkstatt */}
           <div>
@@ -35,16 +35,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Shop */}
-          <div>
-            <h4 style={{ color: '#FFF', fontSize: '1.1rem', marginBottom: '1.25rem', fontFamily: 'var(--font-heading)' }}>Carvantooo Shop</h4>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
-              <li><Link to="/shop">Ersatzteile Shop</Link></li>
-              <li><Link to="/shop/kategorie/alle">Kategorien durchsuchen</Link></li>
-            </ul>
-          </div>
-
-          {/* Column 4: B2B */}
+          {/* Column 3: B2B */}
           <div>
             <h4 style={{ color: '#FFF', fontSize: '1.1rem', marginBottom: '1.25rem', fontFamily: 'var(--font-heading)' }}>B2B Gewerbekunden</h4>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
@@ -56,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 5: Rechtliches */}
+          {/* Column 4: Rechtliches */}
           <div>
             <h4 style={{ color: '#FFF', fontSize: '1.1rem', marginBottom: '1.25rem', fontFamily: 'var(--font-heading)' }}>Rechtliches</h4>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
@@ -77,7 +68,7 @@ export default function Footer() {
               © 2026 OpenCarBox GmbH · Rennweg 76, 1030 Wien · FN 534799 w · UID: ATU75630015
             </p>
             <p style={{ margin: '0.25rem 0 0 0', color: 'var(--text-muted)' }}>
-              Märkte: Österreich · Deutschland
+              Designed by <a href="https://tradamedia.at" target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none' }}>tradamedia.at</a>
             </p>
           </div>
 
