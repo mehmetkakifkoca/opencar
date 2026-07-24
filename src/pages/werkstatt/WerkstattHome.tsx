@@ -442,7 +442,8 @@ export default function WerkstattHome() {
         background: '#121620', 
         borderBottom: '1px solid #1E293B', 
         padding: '5rem 0',
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        scrollMarginTop: '110px'
       }}>
         {/* Title row */}
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1.5rem' }}>
