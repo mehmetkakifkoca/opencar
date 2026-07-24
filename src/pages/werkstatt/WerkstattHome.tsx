@@ -3,7 +3,7 @@ import {
   Calendar, ArrowRight, 
   Phone, CheckCircle
 } from 'lucide-react';
-import mascotWerkstatt from '../../assets/opencarbox-hero-mascot.jpg';
+import mascotWerkstatt from '../../assets/opencarbox-hero-mascot.png';
 import metehanArac from '../../assets/metehan_arac.jpg';
 import teamPhoto from '../../assets/team_photo.jpg';
 import werkstattReception from '../../assets/werkstatt_reception.jpg';
@@ -671,7 +671,6 @@ export default function WerkstattHome() {
           z-index: 1;
           pointer-events: none;
           user-select: none;
-          mix-blend-mode: multiply;
         }
         .stats-item {
           flex: 1 1 200px;
