@@ -438,7 +438,7 @@ export default function WerkstattHome() {
 
 
       {/* 10. AKTIONEN / BESTDRIVE */}
-      <section className="section" style={{ 
+      <section id="aktuelle-aktionen" className="section" style={{ 
         background: '#121620', 
         borderBottom: '1px solid #1E293B', 
         padding: '5rem 0',

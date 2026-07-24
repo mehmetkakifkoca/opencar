@@ -186,7 +186,7 @@ export default function Header() {
                   )}
                 </div>
 
-                <a href="/werkstatt#aktuelle-aktionen" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>AKTIONEN</a>
+                <Link to="/werkstatt#aktuelle-aktionen" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>AKTIONEN</Link>
                 <Link to="/werkstatt/preise" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>PREISE</Link>
                 <Link to="/werkstatt/ueber-uns" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>ÜBER UNS</Link>
                 <Link to="/werkstatt/faq" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>FAQ</Link>
