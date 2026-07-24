@@ -40,10 +40,15 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation();
   React.useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const timer = setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          const yOffset = -120; // Offset to clear the sticky header
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
     }
