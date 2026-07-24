@@ -10,11 +10,9 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Determine active main section
-  let activeSection: 'werkstatt' | 'autohandel' | 'b2b' | 'shop' | 'none' = 'werkstatt';
+  let activeSection: 'werkstatt' | 'autohandel' | 'shop' | 'none' = 'werkstatt';
   if (path.startsWith('/autohandel')) {
     activeSection = 'autohandel';
-  } else if (path.startsWith('/b2b')) {
-    activeSection = 'b2b';
   } else if (path.startsWith('/shop')) {
     activeSection = 'shop';
   } else if (path.startsWith('/auth') || path.startsWith('/impressum') || path.startsWith('/datenschutz') || path.startsWith('/agb')) {
@@ -136,26 +134,10 @@ export default function Header() {
                   fontSize: '0.7rem',
                   fontWeight: 700,
                   letterSpacing: '0.05em',
-                  transition: 'var(--transition-fast)',
-                  borderRight: '1px solid #E5E7EB'
-                }}
-              >
-                SHOP
-              </Link>
-
-              <Link 
-                to="/b2b" 
-                style={{
-                  background: activeSection === 'b2b' ? '#000000' : 'transparent',
-                  color: activeSection === 'b2b' ? '#FFFFFF' : '#6B7280',
-                  padding: '0.35rem 0.8rem',
-                  fontSize: '0.7rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
                   transition: 'var(--transition-fast)'
                 }}
               >
-                B2B
+                SHOP
               </Link>
 
             </div>
@@ -223,16 +205,7 @@ export default function Header() {
               </>
             )}
 
-            {/* B2B sub links */}
-            {activeSection === 'b2b' && (
-              <>
-                <Link to="/b2b" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>ÜBERSICHT</Link>
-                <Link to="/b2b/leistungen" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>LEISTUNGEN</Link>
-                <Link to="/b2b/familien-werkstaetten" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>PARTNERNETZWERK</Link>
-                <Link to="/b2b/faq" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>FAQ</Link>
-                <Link to="/b2b/kontakt" style={{ color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>KONTAKT</Link>
-              </>
-            )}
+            {/* No B2B sub links */}
 
             {/* Shop sub links */}
             {activeSection === 'shop' && (
@@ -349,26 +322,11 @@ export default function Header() {
                   padding: '0.75rem',
                   borderRadius: '6px',
                   textAlign: 'center',
-                  transition: 'all 0.2s'
+                  transition: 'all 0.2s',
+                  gridColumn: '1 / span 2'
                 }}
               >
                 🛒 Shop
-              </Link>
-              <Link 
-                to="/b2b" 
-                onClick={handleLinkClick} 
-                style={{ 
-                  background: activeSection === 'b2b' ? '#000000' : '#F3F4F6', 
-                  color: activeSection === 'b2b' ? '#FFFFFF' : '#1F2937', 
-                  fontWeight: 700, 
-                  fontSize: '0.85rem',
-                  padding: '0.75rem',
-                  borderRadius: '6px',
-                  textAlign: 'center',
-                  transition: 'all 0.2s'
-                }}
-              >
-                💼 B2B Partner
               </Link>
             </div>
           </div>
@@ -381,7 +339,6 @@ export default function Header() {
               <span style={{ fontWeight: 800, color: '#111827', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
                 {activeSection === 'werkstatt' && 'Werkstatt Menü'}
                 {activeSection === 'autohandel' && 'Autohandel Menü'}
-                {activeSection === 'b2b' && 'B2B Menü'}
                 {activeSection === 'shop' && 'Shop Menü'}
               </span>
               
@@ -402,16 +359,6 @@ export default function Header() {
                   <Link to="/autohandel/finanzierung" onClick={handleLinkClick} className="mobile-nav-link">Finanzierung & Raten</Link>
                   <Link to="/autohandel/faq" onClick={handleLinkClick} className="mobile-nav-link">FAQ / Fragen</Link>
                   <Link to="/autohandel/kontakt" onClick={handleLinkClick} className="mobile-nav-link">Kontakt & Beratung</Link>
-                </>
-              )}
-
-              {activeSection === 'b2b' && (
-                <>
-                  <Link to="/b2b" onClick={handleLinkClick} className="mobile-nav-link">Partner Übersicht</Link>
-                  <Link to="/b2b/leistungen" onClick={handleLinkClick} className="mobile-nav-link">Logistik & Leistungen</Link>
-                  <Link to="/b2b/familien-werkstaetten" onClick={handleLinkClick} className="mobile-nav-link">Partnernetzwerk</Link>
-                  <Link to="/b2b/faq" onClick={handleLinkClick} className="mobile-nav-link">B2B FAQ</Link>
-                  <Link to="/b2b/kontakt" onClick={handleLinkClick} className="mobile-nav-link">B2B Kontakt</Link>
                 </>
               )}
 
