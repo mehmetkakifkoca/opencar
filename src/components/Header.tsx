@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Calendar, Menu, X, Phone, Clock, MapPin, ChevronDown, User } from 'lucide-react';
+import { Calendar, Menu, X, Phone, Clock, MapPin, ChevronDown } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
 export default function Header() {
@@ -215,12 +215,6 @@ export default function Header() {
               </>
             )}
 
-            <div style={{ width: '1px', height: '16px', background: '#E5E7EB', margin: '0 0.25rem' }} />
-
-            {/* Login */}
-            <Link to="/auth/login" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#1F2937', fontWeight: 700, fontSize: '0.78rem' }}>
-              <User size={14} /> Login
-            </Link>
 
             {/* CTA Button */}
             <Link 
@@ -375,25 +369,7 @@ export default function Header() {
 
           {/* User Portal and Call to Action */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            <Link 
-              to="/auth/login" 
-              onClick={handleLinkClick} 
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                gap: '0.5rem', 
-                color: '#1F2937',
-                background: '#FFFFFF',
-                border: '1px solid #D1D5DB',
-                padding: '0.75rem',
-                borderRadius: '6px',
-                fontWeight: 600,
-                fontSize: '0.9rem'
-              }}
-            >
-              <User size={16} /> Kundenportal Login
-            </Link>
+
             <Link 
               to="/werkstatt/terminbuchung" 
               onClick={handleLinkClick} 
