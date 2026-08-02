@@ -458,7 +458,7 @@ export default function WerkstattUeberUns() {
             }}>
               <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
                 <img 
-                  src={team009} 
+                  src={teamPhoto} 
                   alt="Kundenservice-Duo" 
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                 />
@@ -476,6 +476,209 @@ export default function WerkstattUeberUns() {
               </div>
             </div>
 
+          </div>
+
+          {/* Subsection Divider: Werkstatt-Team */}
+          <div style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '0.75rem', marginTop: '4.5rem', marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#9CA3AF', letterSpacing: '0.08em', margin: 0, textTransform: 'uppercase' }}>
+              WERKSTATT-TEAM
+            </h3>
+          </div>
+
+          {/* Grid layout for Werkstatt-Team cards (5 cards) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
+            
+            {/* Card 1: KFZ-Mechaniker */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={teamPhoto} 
+                  alt="Werkstatt-Mitarbeiter" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  WERKSTATT-MITARBEITER
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  KFZ-MECHANIKER
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Erfahrener Techniker für Inspektionen, §57a Prüfungen und allgemeine Reparaturen.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Service-Techniker */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team009} 
+                  alt="Werkstatt-Mitarbeiter" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  WERKSTATT-MITARBEITER
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  SERVICE-TECHNIKER
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Spezialist für Klimaservice, Ölwechsel und regelmäßige Wartungsarbeiten.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: KFZ-Techniker */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team001} 
+                  alt="Werkstatt-Mitarbeiter" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  WERKSTATT-MITARBEITER
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  KFZ-TECHNIKER
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Junger Techniker mit Fokus auf moderne Diagnosetechnik und Elektronik.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4: Kundenservice & Technik */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team009} 
+                  alt="Service-Mitarbeiterin" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  SERVICE-MITARBEITERIN
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  KUNDENSERVICE & TECHNIK
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Verbindung zwischen Werkstatt und Kunde – technische Beratung mit persönlichem Touch.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5: Empfang & Beratung */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team009} 
+                  alt="Service-Mitarbeiterin" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  SERVICE-MITARBEITERIN
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  EMPFANG & BERATUNG
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Kompetente Anlaufstelle für Erstberatung, Servicekoordination und Kundenbetreuung.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. UNSERE WERTE SECTION (Light background) */}
+      <section className="section" style={{ background: '#FCFAF6', borderTop: '1px solid #E5E7EB', paddingTop: '5.5rem', paddingBottom: '6.5rem' }}>
+        <div className="container">
+          <div style={{ width: '35px', height: '3px', background: '#FFA800', marginBottom: '1.25rem' }} />
+          <h2 style={{ fontSize: '2.25rem', fontWeight: 800, color: '#111827', marginBottom: '3.5rem' }}>
+            UNSERE WERTE
+          </h2>
+          
+          <div className="grid-3" style={{ gap: '2rem' }}>
+            {[
+              {
+                title: 'TRANSPARENZ',
+                desc: 'Wir erstellen vor jedem Eingriff einen klaren Kostenvoranschlag. Keine versteckten Kosten, keine Überraschungen. Sie entscheiden, was gemacht wird.'
+              },
+              {
+                title: 'QUALITÄT',
+                desc: 'Wir setzen ausschließlich OEM-konforme Ersatzteile und Markenprodukte ein. Qualität ist kein Versprechen – sie ist unser täglicher Anspruch.'
+              },
+              {
+                title: 'KUNDENSERVICE',
+                desc: 'Ihr Fahrzeug verdient persönliche Betreuung. Kein Callcenter, keine anonymen Abläufe. Wir kennen Sie und Ihr Auto – wie in einer Familie.'
+              }
+            ].map((val, idx) => (
+              <div key={idx} style={{ 
+                borderLeft: '4px solid #FFA800', 
+                paddingLeft: '1.5rem', 
+                paddingTop: '0.25rem',
+                paddingBottom: '0.25rem'
+              }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#111827', marginBottom: '0.75rem', letterSpacing: '0.03em' }}>
+                  {val.title}
+                </h3>
+                <p style={{ fontSize: '0.92rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  {val.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
