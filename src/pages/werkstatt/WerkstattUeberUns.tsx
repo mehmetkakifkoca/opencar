@@ -3,6 +3,10 @@ import { Calendar } from 'lucide-react';
 import teamPhoto from '../../assets/team_photo.jpg';
 import metehanArac from '../../assets/metehan_arac.jpg';
 import logoImg from '../../assets/logo.png';
+import team001 from '../../assets/team_001.jpg';
+import team002 from '../../assets/team_002.jpg';
+import team009 from '../../assets/team_009.jpg';
+
 
 export default function WerkstattUeberUns() {
   return (
@@ -370,9 +374,109 @@ export default function WerkstattUeberUns() {
                 </p>
               </div>
             </div>
-
           </div>
 
+          {/* Subsection Divider: Serviceannahme / Büro */}
+          <div style={{ borderBottom: '1px solid #E5E7EB', paddingBottom: '0.75rem', marginTop: '4.5rem', marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#9CA3AF', letterSpacing: '0.08em', margin: 0, textTransform: 'uppercase' }}>
+              SERVICEANNAHME / BÜRO
+            </h3>
+          </div>
+
+          {/* Grid layout for Serviceannahme / Büro cards */}
+          <div className="grid-3" style={{ gap: '2rem' }}>
+            
+            {/* Card: Empfangsteam */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team001} 
+                  alt="Empfangsteam" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  EMPFANGSTEAM
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  SERVICEANNAHME
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Erste Anlaufstelle für alle Kunden. Terminvergabe, Beratung und Koordination.
+                </p>
+              </div>
+            </div>
+
+            {/* Card: Büro-Team */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team002} 
+                  alt="Büro-Team" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  BÜRO-TEAM
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  VERWALTUNG & ABWICKLUNG
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Rechnungsstellung, Versicherungsabwicklung und Kundenbetreuung.
+                </p>
+              </div>
+            </div>
+
+            {/* Card: Kundenservice-Duo */}
+            <div style={{ 
+              background: '#FFFFFF', 
+              border: '1px solid #E5E7EB', 
+              borderRadius: '4px', 
+              overflow: 'hidden', 
+              boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <div style={{ position: 'relative', width: '100%', height: '360px', overflow: 'hidden' }}>
+                <img 
+                  src={team009} 
+                  alt="Kundenservice-Duo" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
+              </div>
+              <div style={{ padding: '1.5rem', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#111827', margin: '0 0 0.25rem 0' }}>
+                  KUNDENSERVICE-DUO
+                </h4>
+                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFA800', letterSpacing: '0.05em', marginBottom: '1rem', textTransform: 'uppercase' }}>
+                  KUNDENBERATUNG
+                </div>
+                <p style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: '1.6', margin: 0 }}>
+                  Persönliche Beratung und individuelle Lösungen für Ihr Fahrzeug.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
