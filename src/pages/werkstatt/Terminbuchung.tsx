@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { CreditCard, CheckCircle, ShieldCheck } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 interface ServiceOption {
   value: string;
@@ -37,13 +37,8 @@ export default function Terminbuchung() {
     carMarke: '',
     carModell: '',
     carBaujahr: '',
-    carKennzeichen: '',
-    paymentMethod: 'onsite', // onsite or stripe
-    cardNumber: '',
-    cardExpiry: '',
-    cardCvc: ''
+    carKennzeichen: ''
   });
-  const [stripeLoading, setStripeLoading] = useState(false);
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
@@ -68,40 +63,22 @@ export default function Terminbuchung() {
       return;
     }
     
-    if (step === 4 && formData.paymentMethod === 'onsite') {
-      // Skip payment step if paying at workshop
-      setStep(6);
+    if (step === 4) {
+      setStep(5);
     } else {
       setStep(prev => prev + 1);
     }
   };
 
   const handleBackStep = () => {
-    if (step === 6 && formData.paymentMethod === 'onsite') {
-      setStep(4);
-    } else {
-      setStep(prev => prev - 1);
-    }
-  };
-
-  const handleStripePayment = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.cardNumber || !formData.cardExpiry || !formData.cardCvc) {
-      alert('Bitte füllen Sie alle Kreditkarten-Felder aus.');
-      return;
-    }
-    setStripeLoading(true);
-    setTimeout(() => {
-      setStripeLoading(false);
-      setStep(6);
-    }, 1500);
+    setStep(prev => prev - 1);
   };
 
   return (
     <div className="container section" style={{ animation: 'fadeInUp 0.4s ease-out', maxWidth: '850px' }}>
       
       {/* STEP INDICATORS HEADER */}
-      {step < 6 && (
+      {step < 5 && (
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center', 
@@ -114,8 +91,7 @@ export default function Terminbuchung() {
             { id: 1, label: 'SERVICE' },
             { id: 2, label: 'FAHRZEUG' },
             { id: 3, label: 'DATUM' },
-            { id: 4, label: 'KONTAKT' },
-            { id: 5, label: 'BESTÄTIGUNG' }
+            { id: 4, label: 'KONTAKT' }
           ].map((item, idx) => {
             const isCompleted = step > item.id;
             const isActive = step === item.id;
@@ -150,7 +126,7 @@ export default function Terminbuchung() {
                 </div>
 
                 {/* Connection Line */}
-                {idx < 4 && (
+                {idx < 3 && (
                   <div style={{ 
                     width: '30px', 
                     height: '2px', 
@@ -466,32 +442,6 @@ export default function Terminbuchung() {
             </div>
           </div>
 
-          <div className="form-group" style={{ marginBottom: '2.5rem' }}>
-            <label className="form-label" style={{ color: '#111827', fontWeight: 650 }}>Zahlungsweise</label>
-            <div style={{ display: 'flex', gap: '1.5rem', marginTop: '0.5rem' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#374151', fontWeight: 600 }}>
-                <input 
-                  type="radio" 
-                  name="paymentMethod" 
-                  value="onsite" 
-                  checked={formData.paymentMethod === 'onsite'} 
-                  onChange={() => setFormData({ ...formData, paymentMethod: 'onsite' })} 
-                />
-                Vor Ort bezahlen (Bar / Karte)
-              </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', color: '#374151', fontWeight: 600 }}>
-                <input 
-                  type="radio" 
-                  name="paymentMethod" 
-                  value="stripe" 
-                  checked={formData.paymentMethod === 'stripe'} 
-                  onChange={() => setFormData({ ...formData, paymentMethod: 'stripe' })} 
-                />
-                Jetzt online anzahlen (Stripe)
-              </label>
-            </div>
-          </div>
-
           <div style={{ borderTop: '1px solid #E5E7EB', margin: '0 -2.5rem 1.5rem -2.5rem' }} />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -499,105 +449,23 @@ export default function Terminbuchung() {
               ← ZURÜCK
             </button>
             <button className="btn" onClick={handleNextStep} style={{ background: '#FFA800', color: '#000', padding: '0.6rem 1.75rem', borderRadius: '4px', border: 'none', fontWeight: 700 }}>
-              WEITER →
+              ANFRAGE ABSCHICKEN →
             </button>
           </div>
         </div>
       )}
 
-      {/* STEP 5: STRIPE PAYMENT SIMULATION */}
+      {/* STEP 5: SUCCESS CONFIRMATION */}
       {step === 5 && (
-        <div style={{ background: '#FFFFFF', border: '1px solid #E5E7EB', borderRadius: '8px', padding: '2.5rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-            <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#111827', margin: 0 }}>Stripe Online Anzahlung</h2>
-            <span style={{ fontSize: '0.8rem', background: 'rgba(255, 168, 0, 0.08)', border: '1px solid #FFA800', padding: '0.25rem 0.5rem', borderRadius: '4px', color: '#B27600', fontWeight: 700 }}>Secure Payment</span>
-          </div>
-
-          <div style={{ background: '#FCFAF6', padding: '1.25rem 1.5rem', borderRadius: '8px', border: '1px solid #E5E7EB', marginBottom: '2rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#111827', fontSize: '0.95rem' }}>
-              <span>Ausgewählter Service:</span>
-              <strong>{selectedServiceObj.label}</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', color: '#B27600', fontSize: '1.1rem', fontWeight: 700, marginTop: '0.5rem' }}>
-              <span>Anzahlungssumme:</span>
-              <span>€ 25,00</span>
-            </div>
-          </div>
-
-          <form onSubmit={handleStripePayment} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <div className="form-group">
-              <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Kreditkartennummer</label>
-              <div style={{ position: 'relative' }}>
-                <input 
-                  type="text" 
-                  required 
-                  className="form-control" 
-                  value={formData.cardNumber} 
-                  onChange={e => setFormData({ ...formData, cardNumber: e.target.value })} 
-                  placeholder="4242 4242 4242 4242" 
-                  style={{ paddingLeft: '2.75rem', background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827' }}
-                />
-                <CreditCard size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
-              </div>
-            </div>
-
-            <div className="grid-2" style={{ gap: '1rem', marginBottom: '1.5rem' }}>
-              <div className="form-group">
-                <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Ablaufdatum</label>
-                <input 
-                  type="text" 
-                  required 
-                  className="form-control" 
-                  value={formData.cardExpiry} 
-                  onChange={e => setFormData({ ...formData, cardExpiry: e.target.value })} 
-                  placeholder="MM/YY" 
-                  style={{ background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827' }}
-                />
-              </div>
-              <div className="form-group">
-                <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>CVC (Kartenprüfnummer)</label>
-                <input 
-                  type="text" 
-                  required 
-                  className="form-control" 
-                  value={formData.cardCvc} 
-                  onChange={e => setFormData({ ...formData, cardCvc: e.target.value })} 
-                  placeholder="123" 
-                  style={{ background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827' }}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem', color: '#6B7280', marginBottom: '2rem' }}>
-              <ShieldCheck size={16} style={{ color: 'var(--success)' }} />
-              <span>Sichere Übermittlung über verschlüsselte Stripe API.</span>
-            </div>
-
-            <div style={{ borderTop: '1px solid #E5E7EB', margin: '0 -2.5rem 1.5rem -2.5rem' }} />
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <button type="button" className="btn" onClick={handleBackStep} disabled={stripeLoading} style={{ background: 'transparent', border: '1px solid #111827', color: '#111827', padding: '0.6rem 1.5rem', borderRadius: '4px', fontWeight: 700 }}>
-                ← ZURÜCK
-              </button>
-              <button type="submit" className="btn" disabled={stripeLoading} style={{ background: '#FFA800', color: '#000', padding: '0.6rem 1.75rem', borderRadius: '4px', border: 'none', fontWeight: 700, minWidth: '180px' }}>
-                {stripeLoading ? 'Verarbeite...' : 'ANZAHLUNG LEISTEN →'}
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
-
-      {/* STEP 6: SUCCESS CONFIRMATION */}
-      {step === 6 && (
         <div style={{ background: '#FFFFFF', border: '1px solid #E5E7EB', borderRadius: '8px', padding: '3.5rem 2.5rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
           <div style={{ width: '80px', height: '80px', background: 'rgba(16,185,129,0.1)', color: 'var(--success)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <CheckCircle size={44} />
           </div>
           
           <div>
-            <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', marginBottom: '0.5rem' }}>Termin erfolgreich reserviert!</h2>
+            <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#111827', marginBottom: '0.5rem' }}>Anfrage erfolgreich gesendet!</h2>
             <p style={{ fontSize: '1.05rem', color: '#4B5563', margin: 0 }}>
-              Vielen Dank für Ihre Buchung bei OpenCarBox.
+              Vielen Dank für Ihre Anfrage bei OpenCarBox.
             </p>
           </div>
 
@@ -610,13 +478,9 @@ export default function Terminbuchung() {
               <span style={{ color: '#6B7280' }}>Leistung:</span>
               <strong style={{ color: '#111827' }}>{selectedServiceObj.label}</strong>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #E5E7EB', paddingBottom: '0.6rem' }}>
-              <span style={{ color: '#6B7280' }}>Termin:</span>
-              <strong style={{ color: '#111827' }}>{formData.date} um {formData.time} Uhr</strong>
-            </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: (formData.carMarke || formData.carModell) ? '0.6rem' : 0, borderBottom: (formData.carMarke || formData.carModell) ? '1px solid #E5E7EB' : 'none' }}>
-              <span style={{ color: '#6B7280' }}>Zahlungsweise:</span>
-              <strong style={{ color: '#111827' }}>{formData.paymentMethod === 'stripe' ? 'Online Anzahlung (Stripe)' : 'Vor Ort (Bar / Karte)'}</strong>
+              <span style={{ color: '#6B7280' }}>Terminwunsch:</span>
+              <strong style={{ color: '#111827' }}>{formData.date} um {formData.time} Uhr</strong>
             </div>
             {(formData.carMarke || formData.carModell) && (
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -629,7 +493,7 @@ export default function Terminbuchung() {
           </div>
 
           <p style={{ fontSize: '0.92rem', color: '#4B5563', maxWidth: '520px', lineHeight: '1.6', margin: '0 0 1rem 0' }}>
-            Wir haben Ihnen eine Bestätigungs-E-Mail gesendet. Sollten sich Änderungen ergeben, können Sie Ihren Termin bequem in unserem Kundenportal verwalten oder uns telefonisch kontaktieren.
+            Wir haben Ihre Anfrage erhalten. Wir prüfen die Verfügbarkeit zum gewünschten Zeitpunkt und senden Ihnen in Kürze eine E-Mail mit der Bestätigung oder einem Alternativvorschlag.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
