@@ -201,10 +201,28 @@ export default function Footer() {
             © 2026 OpenCarBox GmbH · Rennweg 76, 1030 Wien · FN 534799 w · UID: ATU75630015
           </span>
 
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <Link to="/impressum" style={{ color: 'var(--text-muted)' }}>Impressum</Link>
             <Link to="/datenschutz" style={{ color: 'var(--text-muted)' }}>Datenschutz</Link>
             <Link to="/agb" style={{ color: 'var(--text-muted)' }}>AGB</Link>
+            <button 
+              type="button"
+              onClick={() => window.dispatchEvent(new Event('openCookieConsent'))}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--text-muted)',
+                cursor: 'pointer',
+                padding: 0,
+                font: 'inherit',
+                fontSize: '0.85rem',
+                transition: 'color var(--transition-fast)'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+            >
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
 

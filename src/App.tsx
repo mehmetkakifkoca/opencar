@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ChatbotWidget from './components/ChatbotWidget';
+import CookieBanner from './components/CookieBanner';
 
 // Page components
 import WerkstattHome from './pages/werkstatt/WerkstattHome';
@@ -118,6 +119,9 @@ function App() {
 
       {/* Floating AI Chat widget */}
       <ChatbotWidget />
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner />
     </BrowserRouter>
   );
 }
