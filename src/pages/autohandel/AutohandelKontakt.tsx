@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, User, CheckCircle, ShieldCheck } from 'lucide-react';
+import { sendMail } from '../../services/mailService';
 
 export default function AutohandelKontakt() {
   const [searchParams] = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,13 +24,33 @@ export default function AutohandelKontakt() {
     }
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone || !formData.email || !formData.message) {
       alert('Bitte füllen Sie alle erforderlichen Felder (*) aus.');
       return;
     }
-    setSubmitted(true);
+
+    const currentInquiryObj = inquiryTypes.find(t => t.value === formData.inquiryType);
+
+    setIsSubmitting(true);
+    try {
+      await sendMail({
+        type: 'autohandel_kontakt',
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        carInterest: formData.carInterest,
+        inquiryType: formData.inquiryType,
+        inquiryTypeLabel: currentInquiryObj ? currentInquiryObj.label : formData.inquiryType,
+        message: formData.message
+      });
+    } catch (err) {
+      console.warn('Mail send error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const inquiryTypes = [
@@ -114,8 +136,8 @@ export default function AutohandelKontakt() {
                 <span>DSGVO-konform. Ihre Daten werden sicher übertragen und vertraulich behandelt.</span>
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                Anfrage senden
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+                {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
               </button>
             </form>
           )}

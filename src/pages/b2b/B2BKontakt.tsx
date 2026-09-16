@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, CheckCircle, ShieldCheck } from 'lucide-react';
+import { sendMail } from '../../services/mailService';
 
 export default function B2BKontakt() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     companyName: '',
     businessType: 'werkstatt',
@@ -12,13 +14,33 @@ export default function B2BKontakt() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.companyName || !formData.contactPerson || !formData.phone || !formData.email || !formData.message) {
       alert('Bitte füllen Sie alle erforderlichen Felder (*) aus.');
       return;
     }
-    setSubmitted(true);
+
+    const currentBusinessTypeObj = businessTypes.find(b => b.value === formData.businessType);
+
+    setIsSubmitting(true);
+    try {
+      await sendMail({
+        type: 'b2b_kontakt',
+        name: formData.contactPerson,
+        companyName: formData.companyName,
+        businessType: formData.businessType,
+        businessTypeLabel: currentBusinessTypeObj ? currentBusinessTypeObj.label : formData.businessType,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message
+      });
+    } catch (err) {
+      console.warn('Mail send error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const businessTypes = [
@@ -118,8 +140,8 @@ export default function B2BKontakt() {
                 <span>DSGVO-konform. Ihre Firmendaten werden streng vertraulich behandelt.</span>
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                Anfrage senden
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+                {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
               </button>
             </form>
           )}

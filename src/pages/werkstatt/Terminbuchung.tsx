@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
+import { sendMail } from '../../services/mailService';
 
 interface ServiceOption {
   value: string;
@@ -37,7 +38,8 @@ export default function Terminbuchung() {
     carMarke: '',
     carModell: '',
     carBaujahr: '',
-    carKennzeichen: ''
+    carKennzeichen: '',
+    notes: ''
   });
 
   useEffect(() => {
@@ -49,7 +51,9 @@ export default function Terminbuchung() {
 
   const selectedServiceObj = servicesList.find(s => s.value === formData.service) || servicesList[0];
 
-  const handleNextStep = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleNextStep = async () => {
     if (step === 1 && !formData.service) {
       alert('Bitte wählen Sie eine Leistung aus.');
       return;
@@ -64,7 +68,29 @@ export default function Terminbuchung() {
     }
     
     if (step === 4) {
-      setStep(5);
+      setIsSubmitting(true);
+      try {
+        await sendMail({
+          type: 'termin',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          serviceLabel: selectedServiceObj.label,
+          date: formData.date,
+          time: formData.time,
+          carMarke: formData.carMarke,
+          carModell: formData.carModell,
+          carBaujahr: formData.carBaujahr,
+          carKennzeichen: formData.carKennzeichen,
+          message: formData.notes
+        });
+      } catch (err) {
+        console.warn('Mail send error:', err);
+      } finally {
+        setIsSubmitting(false);
+        setStep(5);
+      }
     } else {
       setStep(prev => prev + 1);
     }
@@ -440,16 +466,20 @@ export default function Terminbuchung() {
               <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>E-Mail *</label>
               <input type="email" className="form-control" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} placeholder="E-Mail Adresse" style={{ background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827' }} />
             </div>
+            <div className="form-group">
+              <label className="form-label" style={{ color: '#111827', fontWeight: 600 }}>Anmerkungen / Wünsche (optional)</label>
+              <textarea rows={3} className="form-control" value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} placeholder="Besondere Hinweise zu Ihrem Termin oder Fahrzeug..." style={{ background: '#FCFAF6', border: '1px solid #E5E7EB', color: '#111827', resize: 'none' }}></textarea>
+            </div>
           </div>
 
           <div style={{ borderTop: '1px solid #E5E7EB', margin: '0 -2.5rem 1.5rem -2.5rem' }} />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <button className="btn" onClick={handleBackStep} style={{ background: 'transparent', border: '1px solid #111827', color: '#111827', padding: '0.6rem 1.5rem', borderRadius: '4px', fontWeight: 700 }}>
+            <button className="btn" onClick={handleBackStep} disabled={isSubmitting} style={{ background: 'transparent', border: '1px solid #111827', color: '#111827', padding: '0.6rem 1.5rem', borderRadius: '4px', fontWeight: 700 }}>
               ← ZURÜCK
             </button>
-            <button className="btn" onClick={handleNextStep} style={{ background: '#FFA800', color: '#000', padding: '0.6rem 1.75rem', borderRadius: '4px', border: 'none', fontWeight: 700 }}>
-              ANFRAGE ABSCHICKEN →
+            <button className="btn" onClick={handleNextStep} disabled={isSubmitting} style={{ background: '#FFA800', color: '#000', padding: '0.6rem 1.75rem', borderRadius: '4px', border: 'none', fontWeight: 700, opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+              {isSubmitting ? 'WIRD GESENDET...' : 'ANFRAGE ABSCHICKEN →'}
             </button>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Train, CheckCircle, ShieldCheck } from 'lucide-react';
+import { sendMail } from '../../services/mailService';
 
 export default function WerkstattKontakt() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -15,13 +17,36 @@ export default function WerkstattKontakt() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone || !formData.email || !formData.message) {
       alert('Bitte füllen Sie alle erforderlichen Felder (*) aus.');
       return;
     }
-    setSubmitted(true);
+
+    const currentServiceObj = servicesList.find(s => s.value === formData.service);
+
+    setIsSubmitting(true);
+    try {
+      await sendMail({
+        type: 'werkstatt_kontakt',
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        company: formData.company,
+        service: formData.service,
+        serviceLabel: currentServiceObj ? currentServiceObj.label : formData.service,
+        date: formData.date,
+        time: formData.time,
+        car: formData.car,
+        message: formData.message
+      });
+    } catch (err) {
+      console.warn('Mail send error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const servicesList = [
@@ -145,8 +170,8 @@ export default function WerkstattKontakt() {
                 <span>DSGVO-konform. Ihre Daten werden verschlüsselt übertragen und nicht an Dritte weitergegeben.</span>
               </div>
 
-              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                Persönlich anfragen
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+                {isSubmitting ? 'Wird gesendet...' : 'Persönlich anfragen'}
               </button>
             </form>
           )}
